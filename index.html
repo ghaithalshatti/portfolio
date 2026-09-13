@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghaith Al Shatti - Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- ============ HERO / PERSONAL INFO ============ -->
+    <header class="hero">
+
+        <!-- ============ CORNER CONTROLS: theme + language (anchored to the hero's corner, scrolls with the page) ============ -->
+        <div class="corner-controls" id="corner-controls">
+
+            <!-- ---- THEME SWITCH ---- -->
+            <div class="theme-switch-wrap" id="theme-switch-wrap">
+                <button class="lang-toggle-btn" id="theme-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Theme">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.1 0 2-.9 2-2 0-.51-.2-.98-.52-1.32-.3-.33-.48-.77-.48-1.25 0-1.1.9-2 2-2h2.35C20.6 15.43 22 13.4 22 11c0-4.97-4.48-9-10-9Zm-5.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM9 7.5A1.5 1.5 0 1 1 9 4.5a1.5 1.5 0 0 1 0 3Zm6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm2.5 3.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg>
+                    <span data-i18n="themeBtn">Theme</span>
+                </button>
+                <div class="lang-dropdown theme-dropdown" id="theme-dropdown" hidden>
+                    <button type="button" class="lang-option theme-option theme-option-modern" data-theme="modern">
+                        <span class="theme-swatch"></span>
+                        <span data-i18n="themeModern">Modern</span>
+                    </button>
+                    <button type="button" class="lang-option theme-option theme-option-classic" data-theme="classic">
+                        <span class="theme-swatch"></span>
+                        <span data-i18n="themeClassic">Classic</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ---- LANGUAGE SWITCH ---- -->
+            <div class="lang-switch-wrap" id="lang-switch-wrap">
+                <button class="lang-toggle-btn" id="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 8h-3.02a15.5 15.5 0 0 0-1.14-4.7A8.03 8.03 0 0 1 18.9 10ZM12 4.04c.83 1.1 1.87 2.9 2.36 5.96H9.64c.49-3.06 1.53-4.86 2.36-5.96ZM4.26 14a8.1 8.1 0 0 1 0-4h3.5a17.6 17.6 0 0 0 0 4h-3.5Zm.84 2h3.02a15.5 15.5 0 0 0 1.14 4.7A8.03 8.03 0 0 1 5.1 16Zm3.02-8H5.1a8.03 8.03 0 0 1 4.16-4.7A15.5 15.5 0 0 0 8.12 8ZM12 19.96c-.83-1.1-1.87-2.9-2.36-5.96h4.72c-.49 3.06-1.53 4.86-2.36 5.96ZM9.36 12a15.9 15.9 0 0 1 0-4h5.28a15.9 15.9 0 0 1 0 4H9.36Zm5.38 6.7A15.5 15.5 0 0 0 15.88 14h3.02a8.03 8.03 0 0 1-4.16 4.7ZM16.24 12a17.6 17.6 0 0 0 0-4h3.5a8.1 8.1 0 0 1 0 4h-3.5Z"/></svg>
+                    <span data-i18n="languageBtn">Language</span>
+                </button>
+                <div class="lang-dropdown" id="lang-dropdown" hidden>
+                    <button type="button" class="lang-option" data-lang="en">English</button>
+                    <button type="button" class="lang-option" data-lang="ar">العربية</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hero-main">
+            <div class="avatar-lg">
+                <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="hero-info">
+                <h1 data-i18n="personName">Ghaith Al Shatti</h1>
+                <div class="subtitle">Web Developer (PHP &amp; Laravel)</div>
+                <p class="hero-tagline">
+                    Full-stack Laravel developer focused on scalable backend architecture and RESTful APIs,
+                    with hands-on experience building AI &amp; LLM-powered automation, RAG systems, AI agents,
+                    and workflow-driven systems integration across automation platforms.
+                </p>
+                <div class="contact-pills">
+                    <a class="pill" id="email-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=alshattighaith@gmail.com" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 12l8-5.99V6H4Zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16Z"/></svg>
+                        alshattighaith@gmail.com
+                    </a>
+                    <a class="pill" href="tel:+963968882693">
+                        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.36 2.3.56 3.5.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.56 3.5a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+                        <span class="ltr-text">+963 968 882 693</span>
+                    </a>
+                    <a class="pill" href="https://github.com/ghaithalshatti" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                        github.com/ghaithalshatti
+                    </a>
+                    <span class="pill pill-static">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                        Damascus, Syria
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-actions">
+            <button class="view-profile-btn" id="open-profile-modal">
+                <span data-i18n="viewProfileBtn">View Full Profile</span>
+                <svg viewBox="0 0 24 24"><path d="M8.6 4.6 16 12l-7.4 7.4-1.4-1.4L13.2 12 7.2 6l1.4-1.4Z"/></svg>
+            </button>
+            <button class="view-profile-btn services-btn" id="open-services-modal">
+                <span data-i18n="servicesBtn">Services</span>
+                <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L4.2 8 12 4l7.8 4L12 9Zm-8 3.5V16l8 4 8-4v-3.5l-8 4-8-4Z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects-section">
+        <h2 data-i18n="projectsHeading">Projects</h2>
+        <p class="projects-lead" data-i18n="projectsLead">A selection of backend / full-stack Laravel projects, with growing integration of AI and automation technologies.</p>
+
+        <div class="projects-grid" id="projects-grid">
+
+            <!-- 1. MTN — private, no demo -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>MTN Network Sites Management System, MTN Syria</h3>
+                    <span class="project-dates">01/2026 – 03/2026</span>
+                </div>
+                <div class="project-org">Backend PHP / Laravel Developer</div>
+                <p class="project-desc">
+                    Backend work on a telecom network-infrastructure management system: 5G sites &amp; cells
+                    management, Excel ⇄ Oracle bulk import/export, and migrating a legacy native-PHP system to Laravel.
+                </p>
+                <div class="project-actions">
+                    <span class="demo-btn demo-private"><span data-i18n="privateDemoBadge">Private company project, demo unavailable</span></span>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Maintained and enhanced an existing telecommunications infrastructure management system built with native PHP and Oracle Database.</li>
+                        <li>Developed and integrated import/export modules that enabled bulk data upload and extraction between Excel files and the Oracle database, significantly reducing manual data entry efforts.</li>
+                        <li>Designed and developed a new module for 5G Sites and Cells management, including creation, modification, deletion, and data validation processes.</li>
+                        <li>Extended and optimized the system's search functionality to support 5G entities while maintaining seamless integration with existing network technologies and infrastructure data.</li>
+                        <li>Collaborated with cross-functional teams to analyze business requirements and deliver scalable solutions for network operations management.</li>
+                        <li>Participated in the migration of the legacy PHP application to the Laravel framework, modernizing the system architecture and improving maintainability.</li>
+                        <li>Rebuilt and migrated both newly developed modules and existing employee-facing functionalities into Laravel while preserving business logic and system performance.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 2. AI Complaints / RAG -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>AI Customer Complaint Management &amp; RAG Automation Platform</h3>
+                    <span class="project-dates">06/2026 – 08/2026</span>
+                </div>
+                <p class="project-desc">
+                    An automated platform that integrates a Laravel backend with n8n workflows to streamline
+                    customer complaint handling and automate knowledge base management using RAG
+                    (Retrieval-Augmented Generation) technology.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-video="ai-complaints">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></svg>
+                        <span data-i18n="watchDemoBtn">Watch Demo</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed an AI-powered complaint management system using Laravel and n8n.</li>
+                        <li>Built n8n workflows for complaint processing through multiple automated stages and webhooks.</li>
+                        <li>Implemented a RAG workflow for uploading PDF documents, generating embeddings, and storing them in a vector store.</li>
+                        <li>Integrated an AI Agent with the RAG knowledge base and session-based conversation memory.</li>
+                        <li>Implemented priority-based processing and automated manager notifications for urgent complaints.</li>
+                        <li>Implemented request and session ID tracking to reliably associate asynchronous AI responses with the original customer complaint.</li>
+                        <li>Integrated the n8n automation workflow with the Laravel backend through HTTP webhooks and Laravel Reverb to asynchronously deliver AI-generated responses back to the application in real time.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 3. Flight Booking -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>Flight Booking &amp; Travel Management Platform</h3>
+                    <span class="project-dates">05/2026 – 09/2026</span>
+                </div>
+                <p class="project-desc">
+                    A multi-agency flight booking and travel management platform: flight search, one-way/round-trip
+                    reservations, seat inventory, and passenger &amp; passport management. Each airline agency gets
+                    its own role-based dashboard to manage its flights, balances, and commissions, with Sham Cash
+                    and card payments.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-links="flight-booking">
+                        <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                        <span class="demo-btn-label" data-i18n="visitSiteBtn">Visit Site</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed flight search and availability functionality to retrieve and display available flights based on user criteria.</li>
+                        <li>Implemented one-way and round-trip booking workflows with complete reservation management.</li>
+                        <li>Developed passenger and passport management functionality for handling traveler information and required travel documents.</li>
+                        <li>Built role-based airline agency dashboards, allowing each agency to manage and monitor its own flights and bookings.</li>
+                        <li>Implemented a flexible payment workflow supporting Sham Cash and credit card payments for processing flight booking transactions.</li>
+                        <li>Developed seat inventory management to track and manage available and reserved seats.</li>
+                        <li>Implemented agency commission and balance management to handle financial transactions and agency accounts.</li>
+                        <li>Built RESTful APIs using Laravel Sanctum for secure authentication and API access control.</li>
+                        <li>Implemented email verification and notification workflows to keep users informed throughout the booking process.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 4. NL DB Query / Multi-agent -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>Natural Language Database Query &amp; Multi-Agent System</h3>
+                    <span class="project-dates">04/2026 – 05/2026</span>
+                </div>
+                <p class="project-desc">
+                    A natural-language database assistant powered by a Flowise multi-agent workflow: schema
+                    extraction, SQL generation, and validation, connected to a Laravel backend.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-video="nl-db-agent">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></svg>
+                        <span data-i18n="watchDemoBtn">Watch Demo</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed a natural-language database assistant using Laravel and Flowise.</li>
+                        <li>Designed a multi-agent workflow for database schema extraction, SQL generation, and SQL validation.</li>
+                        <li>Implemented MCP tools to retrieve database schemas and interact with the database through controlled operations.</li>
+                        <li>Built SQL validation logic to verify tables, columns, relationships, and query conditions before execution.</li>
+                        <li>Connected the Flowise AgentFlow with Laravel to process user questions and return database results.</li>
+                        <li>Implemented workflow state management to pass schema, generated SQL, validation results, and query results between agents.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 5. Real Estate -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>Real Estate Property &amp; Asset Management Platform</h3>
+                    <span class="project-dates">09/2025 – 12/2025</span>
+                </div>
+                <p class="project-desc">
+                    A Laravel platform for managing properties, owners, buyers, and viewing requests, with
+                    filterable search APIs and automated email / WhatsApp / SMS notifications.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-links="real-estate">
+                        <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                        <span class="demo-btn-label" data-i18n="visitSiteBtn">Visit Site</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed a Laravel platform for managing properties, owners, buyers, and viewing requests.</li>
+                        <li>Implemented property search APIs with filtering and price-range support.</li>
+                        <li>Developed property media upload and management functionality.</li>
+                        <li>Implemented viewing-request workflows with automated email, WhatsApp, and SMS notifications.</li>
+                        <li>Built administrative interfaces for managing properties, customers, media, and viewing requests.</li>
+                        <li>Developed a user-facing real estate listing page that consumes backend APIs to dynamically retrieve and display property data, including search, filtering, and pagination.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 6. Analytics / Clustering -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>Customers &amp; Products Analytics, Clustering &amp; Classification Platform</h3>
+                    <span class="project-dates">02/2025 – 05/2025</span>
+                </div>
+                <div class="project-org">Backend Laravel / Data Analysis Developer</div>
+                <p class="project-desc">
+                    A Laravel analytics platform implementing K-Means clustering and decision-tree classification
+                    for customer &amp; product segmentation, with visual dashboards.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-links="analytics-clustering">
+                        <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                        <span class="demo-btn-label" data-i18n="visitSiteBtn">Visit Site</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed a Laravel-based customer analytics platform using products, customers, orders, and purchasing data.</li>
+                        <li>Implemented K-Means clustering including normalization, centroid calculation, distance measurement, and convergence for products clustering.</li>
+                        <li>Developed a decision-tree classification workflow for customer segmentation.</li>
+                        <li>Built analytics dashboards to visualize clustering and classification results.</li>
+                        <li>Implemented spreadsheet import functionality for analytics and products, customers, orders, and purchasing data.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 7. Restaurants -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>Restaurants Management System</h3>
+                    <span class="project-dates">2025</span>
+                </div>
+                <div class="project-org">Backend Laravel Developer</div>
+                <p class="project-desc">
+                    A restaurant management backend with an AdminLTE dashboard for menus and orders, role-based
+                    access, an admin approval workflow, and RESTful APIs.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-links="restaurants">
+                        <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                        <span class="demo-btn-label" data-i18n="visitSiteBtn">Visit Site</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed and maintained the backend infrastructure of a restaurants management platform using Laravel and MySQL.</li>
+                        <li>Designed and implemented a centralized AdminLTE dashboard to manage menu categories, meals, beverages, customer orders, and employee accounts.</li>
+                        <li>Built complete CRUD functionalities for menu management, allowing administrators to create, update, delete, and organize food items efficiently.</li>
+                        <li>Implemented role-based access control with permission-based access to restaurants and meals.</li>
+                        <li>Implemented an admin approval workflow where newly registered users remain pending until an administrator approves their account and assigns the appropriate role.</li>
+                        <li>Developed RESTful APIs to support future integrations with mobile applications and third-party delivery services.</li>
+                        <li>Implemented activity logging and password reset/email verification.</li>
+                        <li>Implemented localization.</li>
+                        <li>Collaborated with frontend developers to integrate backend services and ensure a seamless user experience across the platform.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- 8. Service Marketplace -->
+            <article class="project-card">
+                <div class="project-card-head">
+                    <h3>Service Marketplace &amp; Order Management Platform</h3>
+                    <span class="project-dates">2024</span>
+                </div>
+                <p class="project-desc">
+                    A Laravel marketplace connecting customers and service providers, with role-based access,
+                    provider portfolios, orders, and real-time notifications via Laravel Reverb.
+                </p>
+                <div class="project-actions">
+                    <button type="button" class="demo-btn" data-demo-links="marketplace">
+                        <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+                        <span class="demo-btn-label" data-i18n="visitSiteBtn">Visit Site</span>
+                    </button>
+                    <button class="details-toggle" type="button">
+                        <span data-i18n="projectDetailsBtn">Project details</span>
+                        <svg class="chevron" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5l-7 7Z"/></svg>
+                    </button>
+                </div>
+                <div class="project-details" hidden>
+                    <ul>
+                        <li>Developed a Laravel-based marketplace for customers, service providers, portfolios, and orders.</li>
+                        <li>Implemented role-based access control for managing provider-owned orders and portfolios.</li>
+                        <li>Developed RESTful APIs for customers, providers, services, portfolios, and orders.</li>
+                        <li>Implemented real-time notifications using Laravel Reverb.</li>
+                        <li>Built search, filtering, pagination, and order-management functionality.</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> Ghaith Al Shatti <span data-i18n="footerTagline">- a personal portfolio showcasing my work and projects.</span></p>
+    </footer>
+
+</div>
+
+<!-- ============ PROFILE MODAL (everything from the CV except Projects) ============ -->
+<div id="profile-modal-overlay" class="modal-overlay">
+    <div class="modal-box profile-modal">
+        <div class="modal-header">
+            <div class="avatar-lg avatar-modal">
+                <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="modal-title-group">
+                <h3 data-i18n="personName">Ghaith Al Shatti</h3>
+                <span>Web Developer (PHP &amp; Laravel)</span>
+            </div>
+            <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+
+            <section class="profile-section">
+                <h4 data-i18n="summaryHeading">Summary</h4>
+                <p class="summary-full">
+                    As a seasoned Software Engineer with a solid background in web application development, I bring
+                    extensive expertise in full-stack development, with a strong focus on architecting powerful,
+                    scalable, and efficient back-end solutions. I excel in building robust application backbones,
+                    designing RESTful APIs, optimizing performance, implementing secure and scalable architectures,
+                    and ensuring seamless system functionality while keeping user experience at the forefront. In
+                    addition, I have hands-on experience in AI and LLM-based solutions, including Prompt Engineering,
+                    RAG systems, AI agents, structured output parsing, tool calling, and AI workflow automation using
+                    technologies such as n8n and Flowise. I also specialize in system and API integration, connecting
+                    AI workflows, external services, and backend applications to build intelligent and automated
+                    solutions. Furthermore, I have experience in computer networks and network protocols.
+                </p>
+                <p class="summary-short">
+                    Full-stack software engineer specializing in scalable, secure backend architecture and RESTful
+                    APIs, with a strong focus on performance and seamless system functionality. Hands-on experience
+                    in AI &amp; LLM solutions: RAG systems, AI agents, prompt engineering, tool calling, and workflow
+                    automation with n8n and Flowise, plus system &amp; API integration connecting AI workflows with
+                    backend applications. Also experienced in computer networks and network protocols.
+                </p>
+            </section>
+
+            <section class="profile-section">
+                <h4 data-i18n="educationHeading">Education</h4>
+                <div class="timeline-item">
+                    <div class="timeline-row">
+                        <strong>Syrian Virtual University (SVU)</strong>
+                        <span class="timeline-date">Present</span>
+                    </div>
+                    <div class="timeline-sub">Master's Degree in Web Technologies (MWT)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-row">
+                        <strong>Damascus University</strong>
+                        <span class="timeline-date">2021</span>
+                    </div>
+                    <div class="timeline-sub">Bachelor of Information Technology Engineering</div>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h4 data-i18n="skillsHeading">Skills</h4>
+                <div class="tag-cloud">
+                    <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
+                    <span class="tag">Oracle</span><span class="tag">Tailwind CSS</span><span class="tag">HTML</span>
+                    <span class="tag">CSS</span><span class="tag">PHP</span><span class="tag">JavaScript</span>
+                    <span class="tag">Sass</span><span class="tag">jQuery</span><span class="tag">Git</span>
+                    <span class="tag">Windows Server</span><span class="tag">Network Routing &amp; Switching</span>
+                    <span class="tag">VMware</span><span class="tag">Automation with n8n</span>
+                    <span class="tag">AI Agents System</span><span class="tag">RAG Systems</span>
+                    <span class="tag">LLM Integration</span><span class="tag">RESTful API</span>
+                    <span class="tag">System &amp; API Integration</span><span class="tag">Data Analysis</span>
+                    <span class="tag">OOP &amp; Design Patterns</span><span class="tag">Meta Business</span>
+                    <span class="tag">Attention to Detail</span><span class="tag">Collaboration</span>
+                    <span class="tag">Problem-Solving</span>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h4 data-i18n="experienceHeading">Experience</h4>
+
+                <div class="timeline-item">
+                    <div class="timeline-row">
+                        <strong>MTN Syria</strong>
+                        <span class="timeline-date">01/2026 – 03/2026</span>
+                    </div>
+                    <div class="timeline-sub">Backend Developer (Quality and Performance Department)</div>
+                    <ul>
+                        <li>Working as a trainee at the company for a specific period, contributing to quality improvement by finding software solutions in collaboration with employees in the same department.</li>
+                        <li>Learning about communication technologies and exploring how to integrate them with information technologies, which contributes to improving the company's internal performance.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-row">
+                        <strong>Freelance / Client-Based Projects</strong>
+                        <span class="timeline-date">2026</span>
+                    </div>
+                    <div class="timeline-sub">Backend and basic Frontend / AI Integration Developer (Sole Developer)</div>
+                    <ul>
+                        <li>Developed an AI Customer Complaint Management &amp; RAG Automation Platform for a business management company, integrating Laravel with n8n workflows, RAG processing, webhooks, and real-time communication using Laravel Reverb.</li>
+                        <li>Designed and implemented an AI workflow automation system using n8n based on a client's business requirements, connecting multiple processing steps and integrating the workflow with backend services.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-row">
+                        <strong>Freelance team / Online</strong>
+                        <span class="timeline-date">2023 – 2026</span>
+                    </div>
+                    <div class="timeline-sub">Full Stack Developer (backend-focused)</div>
+                    <ul>
+                        <li>Spearheaded Laravel project development, significantly contributing to successful and on-time project completion.</li>
+                        <li>Led effective collaboration in project planning and requirements gathering, resulting in a 40% improvement in design and frontend team productivity, ultimately leading to an improved user experience.</li>
+                        <li>Assisted in deploying and hosting applications, achieving a 20% faster time to market for landing websites, minimizing downtime and disruptions during the transition to production.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-row">
+                        <strong>Particular Tasks</strong>
+                        <span class="timeline-date">2022</span>
+                    </div>
+                    <div class="timeline-sub">Network devices implementation</div>
+                    <ul>
+                        <li>Worked with a group of technical engineers on executing the tasks of preparing network devices to meet the connectivity needs of computer systems in the industrial laboratories in the Adra labor area.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h4 data-i18n="certificationsHeading">Certifications</h4>
+                <ul class="plain-list">
+                    <li>Web Design (Laravel) - <span class="cert-org">Hadara International Center</span></li>
+                    <li>Cisco Certified Network Associate (CCNA) - <span class="cert-org">Hadara International Center</span></li>
+                    <li>MCSA (Windows Server 2016) · VCA (VMware Certified Associate) - <span class="cert-org">Hadara International Center</span></li>
+                </ul>
+            </section>
+
+            <section class="profile-section">
+                <h4 data-i18n="languagesHeading">Languages</h4>
+                <div class="tag-cloud">
+                    <span class="tag">Arabic → Native</span>
+                    <span class="tag">English → Intermediate</span>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- ============ SERVICES MODAL ============ -->
+<div id="services-modal-overlay" class="modal-overlay">
+    <div class="modal-box profile-modal services-modal">
+        <div class="modal-header">
+            <div class="avatar-lg avatar-modal">
+                <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 7L4.2 8 12 4l7.8 4L12 9Zm-8 3.5V16l8 4 8-4v-3.5l-8 4-8-4Z"/></svg>
+            </div>
+            <div class="modal-title-group">
+                <h3 data-i18n="servicesModalTitle">Services</h3>
+                <span data-i18n="servicesModalSubtitle">What I can build for you</span>
+            </div>
+            <button id="services-modal-close" class="modal-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4Zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceWebTitle">Web Design &amp; Development</h4>
+                    <p class="service-desc-full" data-i18n="serviceWebDesc">A modern, professional website, or a full web platform, built around how your business actually works. Not a generic template, but something designed to represent you well, load fast, and work smoothly for your customers on any device, whether that's a simple landing page or a complete system your team manages daily.</p>
+                    <p class="service-desc-short" data-i18n="serviceWebDescShort">A modern, professional website or web platform, built around how your business actually works.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19.4 13a7.4 7.4 0 0 0 0-2l2.1-1.6a.5.5 0 0 0 .12-.66l-2-3.46a.5.5 0 0 0-.6-.22l-2.5 1a7.6 7.6 0 0 0-1.7-1L14.4 2.4A.5.5 0 0 0 14 2h-4a.5.5 0 0 0-.5.42L9.1 5.06a7.6 7.6 0 0 0-1.7 1l-2.5-1a.5.5 0 0 0-.6.22l-2 3.46a.5.5 0 0 0 .12.66L4.5 11a7.4 7.4 0 0 0 0 2l-2.1 1.6a.5.5 0 0 0-.12.66l2 3.46a.5.5 0 0 0 .6.22l2.5-1a7.6 7.6 0 0 0 1.7 1l.38 2.65A.5.5 0 0 0 10 22h4a.5.5 0 0 0 .5-.42l.38-2.65a7.6 7.6 0 0 0 1.7-1l2.5 1a.5.5 0 0 0 .6-.22l2-3.46a.5.5 0 0 0-.12-.66L19.4 13ZM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceAutomationTitle">Business Automation</h4>
+                    <p class="service-desc-full" data-i18n="serviceAutomationDesc">Cutting out the repetitive manual work: approvals, notifications, data entry, follow-ups, reporting, and replacing it with automated processes that run reliably in the background. Less time lost to busywork, fewer things falling through the cracks, and a team that's free to focus on what actually grows the business.</p>
+                    <p class="service-desc-short" data-i18n="serviceAutomationDescShort">Replacing repetitive manual work with automated processes that run reliably in the background.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.66 0l3-3a4 4 0 1 0-5.66-5.66l-1.5 1.5 1.4 1.4 1.5-1.5a2 2 0 1 1 2.83 2.83l-3 3a2 2 0 0 1-2.83 0l-1.4 1.4Zm3-3a4 4 0 0 0-5.66 0l-3 3a4 4 0 1 0 5.66 5.66l1.5-1.5-1.4-1.4-1.5 1.5a2 2 0 1 1-2.83-2.83l3-3a2 2 0 0 1 2.83 0l1.4-1.4Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceIntegrationTitle">Systems Integration</h4>
+                    <p class="service-desc-full" data-i18n="serviceIntegrationDesc">Making the tools your business already relies on, payment systems, messaging apps, CRMs, dashboards, actually talk to each other, instead of living as disconnected islands. Data flows automatically between them, so nothing has to be re-entered by hand and everyone is always working from the same up-to-date information.</p>
+                    <p class="service-desc-short" data-i18n="serviceIntegrationDescShort">Connecting the tools your business already uses so data flows between them automatically.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 4a1 1 0 0 0-.8.4L7.2 6H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2.2l-1-1.6A1 1 0 0 0 15 4H9Zm3 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceSecurityTitle">Security &amp; Surveillance Systems</h4>
+                    <p class="service-desc-full" data-i18n="serviceSecurityDesc">Protecting your space around the clock with AI-powered cameras, smart sensors, and alarm systems that keep watch even when you can't. You get notified the moment something needs your attention, with reliable footage and monitoring that give real peace of mind, on-site or away.</p>
+                    <p class="service-desc-short" data-i18n="serviceSecurityDescShort">Protecting your space around the clock with AI-powered cameras, sensors, and alarm systems.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M5 20a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5Zm6 0a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-2Zm6 0a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceProcessTitle">Process Optimization</h4>
+                    <p class="service-desc-full" data-i18n="serviceProcessDesc">Taking a close look at how your business actually runs day to day, and reshaping those processes to be faster, clearer, and far less error-prone. The goal is operations that feel effortless instead of chaotic, where every step is simple, every handoff is clean, and everyone on the team knows exactly what to do and when.</p>
+                    <p class="service-desc-short" data-i18n="serviceProcessDescShort">Reshaping how your business runs day to day to be faster, clearer, and less error-prone.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3Zm2 2v4h4V5H5Zm8-2h8v8h-8V3Zm2 2v4h4V5h-4ZM3 13h8v8H3v-8Zm2 2v4h4v-4H5Zm10 0h2v2h-2v-2Zm4 0h2v2h-2v-2Zm-4 4h2v2h-2v-2Zm4 0h2v2h-2v-2Zm-2-4h2v2h-2v-2Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceDigitalTitle">Digital Transformation for Physical Businesses</h4>
+                    <p class="service-desc-full" data-i18n="serviceDigitalDesc">Helping shops, restaurants, and hotels move confidently into the digital world: digital menus and ordering, QR-code experiences for walk-in customers, and secure electronic payment integration. Your business gets a modern, convenient experience for every customer, without losing the personal touch that makes it yours.</p>
+                    <p class="service-desc-short" data-i18n="serviceDigitalDescShort">Digital menus, QR-code ordering, and secure e-payments for shops, restaurants, and hotels.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 10a2 2 0 0 1 2-2h1.3l7.2-3.8A1 1 0 0 1 15 5v14a1 1 0 0 1-1.5.87L6.3 16H5a2 2 0 0 1-2-2v-4Zm14-2.24v8.48a4 4 0 0 0 0-8.48ZM8 17.5h2l.86 3H9l-1-3Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceAdsTitle">Paid Social Advertising (Meta Ads)</h4>
+                    <p class="service-desc-full" data-i18n="serviceAdsDesc">Running and managing paid advertising campaigns on Facebook and Instagram, from audience targeting and ad creative to budget management and performance tracking. The goal is putting your business in front of the right people and turning that reach into real leads and sales, not just views.</p>
+                    <p class="service-desc-short" data-i18n="serviceAdsDescShort">Running Facebook &amp; Instagram ad campaigns that turn reach into real leads and sales.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-4.4 3.3A1 1 0 0 1 3 20.5V6a2 2 0 0 1 1-2Zm3 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>
+                    </div>
+                    <h4 data-i18n="serviceMetaTitle">Meta &amp; Telegram Systems Integration</h4>
+                    <p class="service-desc-full" data-i18n="serviceMetaDesc">Integrating your business systems with Meta's platforms, WhatsApp, Facebook, and Instagram, as well as Telegram, so messages, orders, and customer conversations connect directly into how you already work. This includes smart chatbots and automated replies that answer customers instantly on WhatsApp, Messenger, Instagram DMs, and Telegram, day or night, without you having to be online every minute. I also build and connect Telegram bots directly into your system for orders, support, and automated workflows.</p>
+                    <p class="service-desc-short" data-i18n="serviceMetaDescShort">Integrating your systems with WhatsApp, Facebook, Instagram, and Telegram, including smart chatbots, automated replies, and custom Telegram bots.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ PROJECT DETAILS MODAL (shared, filled in per-project by script.js) ============ -->
+<div id="project-modal-overlay" class="modal-overlay">
+    <div class="modal-box project-modal">
+        <div class="modal-header">
+            <div class="avatar-lg avatar-modal">
+                <svg viewBox="0 0 24 24"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2Z"/></svg>
+            </div>
+            <div class="modal-title-group">
+                <h3 id="project-modal-title"></h3>
+                <span id="project-modal-org"></span>
+            </div>
+            <span class="project-dates on-dark" id="project-modal-dates"></span>
+            <button id="project-modal-close" class="modal-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <ul class="project-steps" id="project-modal-list"></ul>
+        </div>
+    </div>
+</div>
+
+<!-- ============ VIDEO DEMO MODAL (shared, video loads only when opened) ============ -->
+<div id="video-modal-overlay" class="modal-overlay">
+    <div class="modal-box video-modal">
+        <div class="modal-header">
+            <div class="video-modal-actions">
+                <a id="video-modal-download" class="video-download-btn" download>
+                    <svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 0 1 1h12a1 1 0 1 0 0-2H6a1 1 0 0 0-1 1Z"/></svg>
+                    <span data-i18n="downloadBtn">Download</span>
+                </a>
+                <button id="video-modal-close" class="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-title-group">
+                <h3 id="video-modal-title"></h3>
+            </div>
+        </div>
+        <div class="video-modal-body">
+            <video id="video-modal-player" controls playsinline preload="none"></video>
+        </div>
+    </div>
+</div>
+
+<!-- ============ PROJECT LINKS MODAL (shared, dashboard/frontend visit links, filled in per-project by script.js) ============ -->
+<div id="links-modal-overlay" class="modal-overlay">
+    <div class="modal-box links-modal">
+        <div class="modal-header">
+            <div class="avatar-lg avatar-modal">
+                <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+            </div>
+            <div class="modal-title-group">
+                <h3 id="links-modal-title"></h3>
+                <span data-i18n="linksModalSubtitle">Live project links</span>
+            </div>
+            <button id="links-modal-close" class="modal-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="links-list" id="links-modal-list"></div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

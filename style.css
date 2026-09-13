@@ -1,0 +1,1145 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ============ THEME COLOR TOKENS ============
+   Default (no [data-theme] attribute, or [data-theme="modern"]) is the
+   emerald/pistachio palette. [data-theme="classic"] restores the original
+   blue palette. Every accent color in this file is a var(--...) reference
+   so switching the attribute on <html> re-themes the whole page instantly. */
+:root{
+    --color-primary-dark:#065f46;
+    --color-primary:#059669;
+    --color-primary-light:#10b981;
+    --color-primary-rgb:5,150,105;
+    --tint-bg:#ecfdf5;
+    --tint-gradient-1:#ecfdf5;
+    --tint-gradient-2:#d1fae5;
+    --tint-gradient-3:#a7f3d0;
+    --border-hover:#a7f3d0;
+    --accent-dot:#34d399;
+}
+
+html[data-theme="classic"]{
+    --color-primary-dark:#1d4ed8;
+    --color-primary:#2563eb;
+    --color-primary-light:#3b82f6;
+    --color-primary-rgb:37,99,235;
+    --tint-bg:#eaf1ff;
+    --tint-gradient-1:#eaf6ff;
+    --tint-gradient-2:#d6ecfb;
+    --tint-gradient-3:#c7e4fb;
+    --border-hover:#dbeafe;
+    --accent-dot:#93c5fd;
+}
+
+html[dir="rtl"] [data-i18n]{
+    font-family:'Noto Sans Arabic', 'Inter', Arial, sans-serif;
+}
+
+/* keep phone numbers and date ranges reading in the correct left-to-right
+   order even inside an RTL (Arabic) page, instead of the digit groups
+   visually reversing */
+.ltr-text,
+.project-dates,
+.timeline-date{
+    direction:ltr;
+    unicode-bidi:isolate;
+}
+
+/* content that intentionally stays in English even when the page is in
+   Arabic/RTL mode (project data, CV details, job titles) must keep reading
+   and aligning left-to-right, instead of inheriting the page's RTL flow */
+html[dir="rtl"] .hero-tagline,
+html[dir="rtl"] .project-card-head h3,
+html[dir="rtl"] .project-org,
+html[dir="rtl"] .project-desc,
+html[dir="rtl"] .summary-full,
+html[dir="rtl"] .summary-short,
+html[dir="rtl"] .timeline-item,
+html[dir="rtl"] .tag-cloud,
+html[dir="rtl"] .plain-list,
+html[dir="rtl"] #project-modal-list,
+html[dir="rtl"] #video-modal-title{
+    direction:ltr;
+    text-align:left;
+}
+
+/* the "View Full Profile" arrow should point outward (away from the
+   button), which is visually leftward once the page flips to RTL */
+html[dir="rtl"] #open-profile-modal svg{
+    transform:scaleX(-1);
+}
+
+body{
+    transition:background .35s ease;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.5), transparent 40%),
+        linear-gradient(160deg, var(--tint-gradient-1) 0%, var(--tint-gradient-2) 55%, var(--tint-gradient-3) 100%);
+    min-height:100vh;
+    padding:48px 24px 40px;
+    color:#1e293b;
+}
+
+.page{
+    max-width:1100px;
+    margin:0 auto;
+}
+
+svg{
+    width:16px;
+    height:16px;
+    fill:currentColor;
+    flex-shrink:0;
+}
+
+/* ============ HERO ============ */
+
+.hero{
+    position:relative;
+    transition:background .35s ease, box-shadow .35s ease;
+    background:linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 45%, var(--color-primary-light) 100%);
+    color:white;
+    padding:38px 40px;
+    border-radius:22px;
+    box-shadow:0 20px 45px rgba(var(--color-primary-rgb),.28);
+    margin-bottom:32px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.hero-main{
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.avatar-lg{
+    width:76px;
+    height:76px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.4);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:26px;
+    flex-shrink:0;
+}
+
+.avatar-lg svg{
+    width:38px;
+    height:38px;
+    fill:white;
+}
+
+.avatar-modal svg{
+    width:27px;
+    height:27px;
+}
+
+.hero-info h1{
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:-.3px;
+}
+
+.hero-info .subtitle{
+    margin-top:4px;
+    font-size:14.5px;
+    font-weight:600;
+    color:rgba(255,255,255,.9);
+}
+
+.hero-tagline{
+    margin-top:12px;
+    max-width:640px;
+    font-size:14px;
+    line-height:1.65;
+    color:rgba(255,255,255,.92);
+}
+
+.contact-pills{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.35);
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    transition:.2s;
+}
+
+a.pill:hover{
+    background:rgba(255,255,255,.28);
+    transform:translateY(-1px);
+}
+
+.pill-static{
+    cursor:default;
+}
+
+.hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.view-profile-btn{
+    align-self:flex-start;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    border-radius:12px;
+    border:none;
+    background:white;
+    color:var(--color-primary-dark);
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.view-profile-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 22px rgba(0,0,0,.18);
+}
+
+.view-profile-btn svg{
+    width:15px;
+    height:15px;
+}
+
+.services-btn{
+    background:rgba(255,255,255,.14);
+    color:white;
+    border:1.5px solid rgba(255,255,255,.55);
+}
+
+.services-btn:hover{
+    background:rgba(255,255,255,.24);
+}
+
+.corner-controls{
+    position:absolute;
+    top:20px;
+    right:20px;
+    z-index:5;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+html[dir="rtl"] .corner-controls{
+    right:auto;
+    left:20px;
+}
+
+.lang-switch-wrap,
+.theme-switch-wrap{
+    position:relative;
+}
+
+.lang-toggle-btn{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:white;
+    border:1px solid rgba(15,23,42,.08);
+    color:var(--color-primary);
+    font-size:11.5px;
+    font-weight:700;
+    font-family:'Inter', 'Noto Sans Arabic', Arial, sans-serif;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(15,23,42,.2);
+    transition:.2s;
+}
+
+.lang-toggle-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 24px rgba(15,23,42,.24);
+}
+
+.lang-toggle-btn svg{
+    width:14px;
+    height:14px;
+    flex-shrink:0;
+}
+
+.lang-dropdown{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    min-width:140px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 14px 30px rgba(15,23,42,.22);
+    padding:6px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+.lang-dropdown[hidden]{
+    display:none;
+}
+
+html[dir="rtl"] .lang-dropdown{
+    right:auto;
+    left:0;
+}
+
+.lang-option{
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:9px 12px;
+    border-radius:8px;
+    border:none;
+    background:none;
+    color:#1e293b;
+    font-size:13px;
+    font-weight:600;
+    font-family:'Inter', 'Noto Sans Arabic', Arial, sans-serif;
+    cursor:pointer;
+    transition:.15s;
+}
+
+.lang-option:hover{
+    background:var(--tint-bg);
+}
+
+.lang-option.active{
+    background:var(--color-primary);
+    color:white;
+}
+
+.theme-option{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.theme-swatch{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    flex-shrink:0;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);
+}
+
+/* fixed preview colors for each option — these always show what that
+   theme looks like, regardless of which theme is currently active */
+.theme-option-modern .theme-swatch{
+    background:#059669;
+}
+
+.theme-option-classic .theme-swatch{
+    background:#2563eb;
+}
+
+/* ============ PROJECTS ============ */
+
+.projects-section h2{
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:4px;
+}
+
+.projects-lead{
+    font-size:13.5px;
+    color:#64748b;
+    margin-bottom:22px;
+}
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+    gap:18px;
+}
+
+.project-card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(15,23,42,.06);
+    border:1px solid #eef2f7;
+    transition:box-shadow .2s, transform .2s;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+}
+
+.project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 35px rgba(15,23,42,.1);
+    border-color:var(--border-hover);
+}
+
+.project-card-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.project-card-head h3{
+    font-size:15.5px;
+    font-weight:700;
+    color:#1e293b;
+    line-height:1.35;
+}
+
+.project-dates{
+    flex-shrink:0;
+    font-size:11px;
+    font-weight:700;
+    color:var(--color-primary);
+    background:var(--tint-bg);
+    padding:5px 10px;
+    border-radius:999px;
+    white-space:nowrap;
+    margin-top:2px;
+}
+
+.project-org{
+    font-size:12px;
+    font-weight:600;
+    color:#64748b;
+}
+
+.project-desc{
+    font-size:13.5px;
+    line-height:1.6;
+    color:#475569;
+}
+
+.project-actions{
+    margin-top:auto;
+    padding-top:8px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    gap:10px;
+    border-top:1px dashed #e5e9f0;
+}
+
+.demo-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 16px;
+    border-radius:9px;
+    background:var(--color-primary);
+    color:white;
+    font-size:12.5px;
+    font-weight:600;
+    font-family:inherit;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.demo-btn svg{
+    width:13px;
+    height:13px;
+}
+
+.demo-btn:hover{
+    background:var(--color-primary-dark);
+    transform:translateY(-1px);
+}
+
+.demo-btn.demo-private,
+.demo-btn.demo-disabled{
+    background:#eef1f5;
+    color:#94a3b8;
+    cursor:default;
+    font-weight:500;
+}
+
+.demo-btn.demo-private:hover,
+.demo-btn.demo-disabled:hover{
+    transform:none;
+    background:#eef1f5;
+}
+
+.details-toggle{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:none;
+    border:none;
+    color:var(--color-primary);
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+    padding:4px 2px;
+    margin-left:auto;
+}
+
+/* RTL desktop only: flex items are laid out right-to-left in RTL, so the
+   auto margin that pushes "Project details" away from the demo/visit
+   button has to sit on the item's right side instead of its left side —
+   otherwise the free space piles up past both buttons on the far left
+   edge instead of opening a gap between them. Mobile stacks these buttons
+   (see the max-width:640px block below), so this is desktop-only. */
+@media (min-width:641px){
+    html[dir="rtl"] .details-toggle{
+        margin-left:0;
+        margin-right:auto;
+    }
+}
+
+/* ============ FOOTER ============ */
+
+.site-footer{
+    margin-top:40px;
+    text-align:center;
+    font-size:12.5px;
+    color:#7c8aa0;
+}
+
+/* ============ MODAL (profile) ============ */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    backdrop-filter:blur(4px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease;
+    z-index:1000;
+    padding:24px;
+}
+
+.modal-overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+    width:720px;
+    max-width:100%;
+    max-height:85vh;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 30px 60px rgba(0,0,0,.32);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    transform:translateY(18px) scale(.96);
+    transition:transform .25s ease;
+}
+
+.modal-overlay.active .modal-box{
+    transform:translateY(0) scale(1);
+}
+
+.modal-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:22px 28px;
+    background:linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    color:white;
+    flex-shrink:0;
+}
+
+.avatar-modal{
+    width:52px;
+    height:52px;
+    font-size:18px;
+}
+
+.modal-title-group{
+    flex:1;
+}
+
+.modal-title-group h3{
+    font-size:17px;
+    font-weight:700;
+}
+
+.modal-title-group span{
+    font-size:12.5px;
+    color:rgba(255,255,255,.85);
+}
+
+.modal-close{
+    background:rgba(255,255,255,.15);
+    border:none;
+    color:white;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    font-size:19px;
+    line-height:1;
+    cursor:pointer;
+    transition:.2s;
+    flex-shrink:0;
+}
+
+.modal-close:hover{
+    background:rgba(255,255,255,.3);
+}
+
+.modal-body{
+    padding:26px 28px 34px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:26px;
+    background:#f7f9fc;
+}
+
+.profile-section h4{
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    color:var(--color-primary);
+    margin-bottom:12px;
+}
+
+.profile-section p{
+    font-size:13.5px;
+    line-height:1.7;
+    color:#334155;
+}
+
+.summary-short{
+    display:none;
+}
+
+.timeline-item{
+    background:white;
+    border-radius:12px;
+    padding:16px 18px;
+    box-shadow:0 3px 10px rgba(15,23,42,.05);
+    margin-bottom:10px;
+}
+
+.timeline-item:last-child{
+    margin-bottom:0;
+}
+
+.timeline-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.timeline-row strong{
+    font-size:14px;
+    color:#1e293b;
+}
+
+.timeline-date{
+    font-size:11px;
+    font-weight:700;
+    color:var(--color-primary);
+    white-space:nowrap;
+}
+
+.timeline-sub{
+    font-size:12.5px;
+    color:#64748b;
+    margin-top:2px;
+    margin-bottom:8px;
+}
+
+.timeline-item ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.timeline-item li{
+    position:relative;
+    padding-left:16px;
+    font-size:12.8px;
+    line-height:1.55;
+    color:#475569;
+}
+
+.timeline-item li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:7px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--accent-dot);
+}
+
+.tag-cloud{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tag{
+    font-size:12px;
+    font-weight:600;
+    color:var(--color-primary);
+    background:var(--tint-bg);
+    padding:6px 13px;
+    border-radius:999px;
+}
+
+.plain-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.plain-list li{
+    background:white;
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:13px;
+    color:#334155;
+    box-shadow:0 3px 10px rgba(15,23,42,.05);
+}
+
+.cert-org{
+    color:var(--color-primary);
+    font-weight:600;
+}
+
+/* ============ MODAL (services) ============ */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:14px;
+}
+
+.service-card{
+    background:white;
+    border-radius:14px;
+    padding:18px 20px;
+    box-shadow:0 3px 10px rgba(15,23,42,.05);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.service-icon{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    background:var(--tint-bg);
+    color:var(--color-primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.service-icon svg{
+    width:20px;
+    height:20px;
+}
+
+.service-card h4{
+    font-size:14px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.service-card p{
+    font-size:12.8px;
+    line-height:1.6;
+    color:#64748b;
+}
+
+/* full description on desktop, short/to-the-point version on mobile
+   (same pattern as .summary-full / .summary-short) */
+.service-desc-short{
+    display:none;
+}
+
+/* ============ MODAL (project details) ============ */
+
+.modal-box.project-modal{
+    width:640px;
+    max-height:80vh;
+}
+
+.project-dates.on-dark{
+    background:rgba(255,255,255,.18);
+    color:white;
+    border:1px solid rgba(255,255,255,.35);
+}
+
+#project-modal-org:empty{
+    display:none;
+}
+
+.project-steps{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.project-steps li{
+    position:relative;
+    font-size:13.3px;
+    line-height:1.6;
+    color:#334155;
+    background:white;
+    border-radius:10px;
+    padding:11px 14px 11px 22px;
+    box-shadow:0 3px 10px rgba(15,23,42,.05);
+}
+
+.project-steps li::before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:16px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--accent-dot);
+}
+
+/* ============ MODAL (video demo) ============ */
+
+.modal-box.video-modal{
+    width:800px;
+    max-height:85vh;
+}
+
+/* keep title on the left, actions on the right visually on desktop,
+   regardless of DOM order (DOM order is actions-first so the mobile
+   float-wrap below works) */
+.video-modal .modal-title-group{
+    order:-1;
+}
+
+.video-modal-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+}
+
+.video-download-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 14px;
+    border-radius:9px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.35);
+    color:white;
+    font-size:12.5px;
+    font-weight:600;
+    text-decoration:none;
+    white-space:nowrap;
+    flex-shrink:0;
+    transition:.2s;
+}
+
+.video-download-btn:hover{
+    background:rgba(255,255,255,.3);
+}
+
+.video-download-btn svg{
+    width:14px;
+    height:14px;
+}
+
+.video-modal-body{
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:0 0 20px 20px;
+}
+
+#video-modal-player{
+    width:100%;
+    max-height:75vh;
+    display:block;
+}
+
+/* when the viewer taps the native enlarge/fullscreen icon, drop our own
+   max-height cap so the video snaps to the full screen size immediately
+   instead of staying boxed in at the modal's max-height first */
+#video-modal-player:fullscreen{
+    width:100%;
+    height:100%;
+    max-height:none;
+}
+
+#video-modal-player:-webkit-full-screen{
+    width:100%;
+    height:100%;
+    max-height:none;
+}
+
+/* Android Chrome (and some WebViews) can size the native video fullscreen
+   to the modal's own box instead of the real device screen when an
+   ancestor has a CSS transform or is clipped/height-constrained. script.js
+   toggles this class for as long as the video is actually in native
+   fullscreen, stripping those constraints so it fills the whole screen
+   immediately instead of landing at a smaller, boxed-in size first. */
+#video-modal-overlay.is-fullscreen{
+    padding:0;
+}
+
+#video-modal-overlay.is-fullscreen .modal-box{
+    transform:none;
+    width:100%;
+    height:100%;
+    max-height:none;
+    border-radius:0;
+    overflow:visible;
+}
+
+#video-modal-overlay.is-fullscreen .modal-header{
+    display:none;
+}
+
+#video-modal-overlay.is-fullscreen .video-modal-body{
+    height:100%;
+    border-radius:0;
+}
+
+/* ============ MODAL (project links: dashboard / live site) ============ */
+
+.modal-box.links-modal{
+    width:480px;
+    max-height:80vh;
+}
+
+.links-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.link-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    background:white;
+    border-radius:12px;
+    padding:16px 18px;
+    box-shadow:0 3px 10px rgba(15,23,42,.05);
+}
+
+.link-item-text h4{
+    font-size:14px;
+    font-weight:700;
+    color:#1e293b;
+    margin-bottom:4px;
+}
+
+.link-item-text p{
+    font-size:12.5px;
+    line-height:1.5;
+    color:#64748b;
+}
+
+.link-visit-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 16px;
+    border-radius:9px;
+    background:var(--color-primary);
+    color:white;
+    font-size:12.5px;
+    font-weight:600;
+    font-family:inherit;
+    text-decoration:none;
+    white-space:nowrap;
+    flex-shrink:0;
+    transition:.2s;
+}
+
+.link-visit-btn:hover{
+    background:var(--color-primary-dark);
+    transform:translateY(-1px);
+}
+
+.link-visit-btn svg{
+    width:13px;
+    height:13px;
+}
+
+/* hide the scrollbar visually on touch/mobile — scrolling itself still works */
+@media (max-width:640px){
+    .modal-body{
+        scrollbar-width:none;
+        -ms-overflow-style:none;
+    }
+    .modal-body::-webkit-scrollbar{
+        display:none;
+    }
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width:900px){
+    .page{ max-width:100%; }
+    .projects-grid{ grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); }
+}
+
+@media (max-width:640px){
+    body{ padding:24px 14px 30px; }
+
+    .hero{ padding:24px 20px; border-radius:18px; gap:20px; }
+    .hero-main{ flex-direction:column; align-items:flex-start; gap:16px; }
+    .avatar-lg{ width:60px; height:60px; }
+    .avatar-lg svg{ width:30px; height:30px; }
+    .hero-info h1{ font-size:22px; }
+    .hero-info .subtitle{ font-size:13px; }
+    .hero-tagline{ font-size:13px; }
+
+    .contact-pills{ gap:8px; }
+    .pill{ font-size:12px; padding:8px 13px; }
+
+    .view-profile-btn{ width:100%; justify-content:center; }
+
+    .projects-section h2{ font-size:19px; }
+    .projects-grid{ grid-template-columns:1fr; gap:14px; }
+    .project-card{ padding:18px; }
+    .project-card-head{ flex-direction:column; align-items:flex-start; gap:6px; }
+    .project-dates{ margin-top:0; }
+    .project-actions{ flex-direction:column; align-items:stretch; }
+    .demo-btn{ justify-content:center; text-align:center; }
+
+    .modal-overlay{ padding:10px; }
+    .modal-box{ border-radius:16px; max-height:82vh; }
+    .modal-box.project-modal{ width:100%; max-height:82vh; }
+    .modal-box.profile-modal{ width:100%; max-height:82vh; }
+    .modal-box.services-modal{ width:100%; max-height:82vh; }
+    .services-grid{ grid-template-columns:1fr; }
+    .service-desc-full{ display:none; }
+    .service-desc-short{ display:block; }
+    .hero-actions{ flex-direction:column; align-items:flex-start; }
+    /* mobile only: stack the language button on top and the theme button
+       underneath it (instead of side by side), so the pair takes up only
+       one button's width and stays clear of the avatar next to it */
+    .corner-controls{
+        top:14px;
+        right:14px;
+        gap:8px;
+        flex-direction:column-reverse;
+        align-items:flex-end;
+    }
+    html[dir="rtl"] .corner-controls{ right:auto; left:14px; }
+    .modal-box.video-modal{ width:100%; max-height:72vh; }
+    .modal-box.links-modal{ width:100%; }
+    .link-item{ flex-direction:column; align-items:stretch; text-align:center; gap:10px; }
+    .link-visit-btn{ justify-content:center; }
+    .video-download-btn{ font-size:11.5px; padding:7px 11px; }
+    #video-modal-player{ max-height:50vh; }
+    #video-modal-player:fullscreen{ max-height:none; }
+    #video-modal-player:-webkit-full-screen{ max-height:none; }
+    .modal-header{ padding:16px 18px; gap:12px; }
+    .avatar-modal{ width:44px; height:44px; }
+    .avatar-modal svg{ width:22px; height:22px; }
+    .modal-title-group h3{ font-size:15px; }
+    .modal-header .project-dates{ font-size:10px; padding:4px 8px; }
+    .modal-body{ padding:18px 18px 24px; gap:22px; }
+
+    /* project modal: stack icon+close on top, date under the close button,
+       then the project name gets the full width so it doesn't wrap word by word */
+    .project-modal .modal-header{
+        display:grid;
+        grid-template-columns:1fr auto;
+        grid-template-rows:auto auto auto;
+        align-items:start;
+        row-gap:6px;
+        column-gap:10px;
+    }
+    .project-modal .avatar-modal{ grid-column:1; grid-row:1 / 3; align-self:start; }
+    #project-modal-close{ grid-column:2; grid-row:1; justify-self:end; align-self:start; }
+    .project-modal .project-dates{ grid-column:2; grid-row:2; justify-self:end; align-self:start; }
+    .project-modal .modal-title-group{ grid-column:1 / -1; grid-row:3; margin-top:4px; }
+
+    /* video modal: Download + X float in the top-right corner, and the
+       title text starts right away on the left of that same first line,
+       wrapping around them — then continues at full width on the next
+       line(s) once it clears past them */
+    .video-modal .modal-header{
+        display:block;
+        overflow:hidden; /* contain the floated actions so the header sizes to them */
+    }
+    .video-modal .video-modal-actions{
+        float:right;
+        margin-left:10px;
+        margin-bottom:6px;
+    }
+    /* keep the X pinned in the true top-right corner with Download to its
+       left, same as in English — without this, RTL would mirror the two
+       buttons and push the X in from the corner instead */
+    html[dir="rtl"] .video-modal .video-modal-actions{
+        direction:ltr;
+    }
+    .video-modal .modal-title-group{
+        order:0;
+        display:block;
+    }
+    .video-modal .modal-title-group h3{
+        margin:0;
+    }
+
+    .timeline-row{ flex-direction:column; align-items:flex-start; gap:2px; }
+
+    .summary-full{ display:none; }
+    .summary-short{ display:block; }
+}
+
+@media (max-width:380px){
+    .hero-info h1{ font-size:20px; }
+    .pill{ font-size:11.5px; padding:7px 11px; }
+}
